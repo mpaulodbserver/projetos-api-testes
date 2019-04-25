@@ -1,0 +1,80 @@
+DadosPedidos:
+- CodigoPedido: ''
+  CodigoEntrega: ''
+  EMail: marcos_carvalho@carrefour.com
+  CPFouCNPJ: '28124546878'
+  CodigoCliente: marcos_carvalho@carrefour.com
+  CondicaoPagamento: CARTAO VISA
+  ValorPedido: 289.9
+  ValorFrete: 9.86
+  ValorEncargos: 0
+  ValorDesconto: 0
+  DataVenda: 04/11/2016 11:11:07
+  Transportadora: '10520136000186'
+  EmitirNotaSimbolica: false
+  FormaPagamento: VISTA
+  DestNome: Marcos Paulo
+  DestSexo: M
+  DestEmail: marcos_carvalho@carrefour.com
+  DestTelefone: '11940397199'
+  DestLogradouro: Avenida Guilherme
+  DestNumeroLogradouro: '1691'
+  DestComplementoEndereco: apt 92 1
+  DestBairro: Das Candongas
+  DestMunicipio: São Paulo
+  DestEstado: SP
+  DestCep: '02053003'
+  DestPais: Brasil
+  DestTipoPessoa: F
+  DestInscricaoEstadual: 
+  DestInscricaoMunicipal: 
+  DestReferencia: condominio collection
+  PedidoJaPago: true
+  Itens:
+    DadosPedidosItem:
+    - CodigoProduto: '9434461'
+      QuantidadeProduto: 1
+      PrecoUnitario: 289.9
+      EmbalagemPresente: false
+      MensagemPresente: ''
+      PrecoUnitarioBruto: 289.9
+      ValorReferencia: 289.9
+      ValorDesconto: 10
+      ValorFrete: 9.86
+      InformAdicionaisNF: 'Pedido :PTFS004890050001/nTelefone: 11981814136/nPonto
+        de referencia: null'
+    - CodigoProduto: '9367586'
+      QuantidadeProduto: 1
+      PrecoUnitario: 289.9
+      EmbalagemPresente: false
+      MensagemPresente: ''
+      PrecoUnitarioBruto: 289.9
+      ValorReferencia: 289.9
+      ValorDesconto: 10
+      ValorFrete: 9.86
+      InformAdicionaisNF: |-
+        Pedido :PTFS004890050001
+        Telefone: 11981814136
+        Ponto de referencia: null
+  DataPrazoEntregaInicial: 24/04/2018 00:00:00
+  DataPrazoEntregaFinal: 24/04/2018 00:00:00
+  TipoEntrega: '0'
+  ValorFretePagar: 9.86
+  InformAdicionaisNF: 'Pedido :PTFS004890050001/nTelefone: 11981814136/nPonto de referencia:
+    null'
+  PrioridadeEntrega: false
+  EndCodigoIBGE: '3548708'
+  WareHouse: '676'
+  QuantidadePacote: 1
+  EndFaturamento:
+    NomeCliente: Marcos Paulo
+    Logradouro: Avenida Guilherme
+    NumeroLogradouro: '1691'
+    ComplementoEndereco: apt 92 01
+    Bairro: Das Candongas
+    Municipio: São Paulo
+    Estado: SP
+    Cep: '02053003'
+    ReferenciaEndereco: condominio collection
+    Pais: Brasil
+    EndCodigoIBGE: '3548708'

@@ -1,0 +1,18 @@
+source 'http://rubygems.org'
+
+gem 'allure-cucumber'
+gem 'allure-rspec'
+gem 'allure-ruby-adaptor-api'
+gem 'capybara'
+gem 'cucumber'
+gem 'faker'
+gem 'pry'
+gem 'rspec'
+gem 'rspec-retry'
+gem 'selenium-webdriver'
+gem 'site_prism'
+gem 'syntax'
+gem 'capybara-angular'
+gem 'roo'
+
+

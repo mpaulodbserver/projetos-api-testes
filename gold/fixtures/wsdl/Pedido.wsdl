@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.carrefour.com.br/WS/PedidoISY" xmlns:ns1="http://www.carrefour.com.br/WS/PedidoSVA" xmlns:tns="http://xmlns.example.com/1455803194979" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.carrefour.com.br/WS/Pedido" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1455803194979">
+    <wsdl:documentation>Este WebService destina-se a integra��o entre plataformas de e-commerce e o ERP Carrefour.&lt;br&gt;&lt;br&gt;&lt;b&gt;�ltima atualiza��o: 14-10-2016&lt;/b&gt;</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns="http://www.carrefour.com.br/WS/PedidoISY" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.carrefour.com.br/WS/PedidoISY" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="CPFouCNPJ" type="xs:string"/>
+            <xs:element name="CancelamentoNFRetornoCliente">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoEntrega"/>
+                        <xs:element ref="ns2:CodigoDevolucao"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CodigoDevolucao" type="xs:string"/>
+            <xs:element name="CodigoEntrega" type="xs:string"/>
+            <xs:element name="CodigoLote" type="xs:string"/>
+            <xs:element name="CodigoPedido" type="xs:string"/>
+            <xs:element name="CodigoProdutoRMS" type="xs:string"/>
+            <xs:element name="CodigoRetorno">
+                <xs:annotation>
+                    <xs:documentation>1-OK, 0-NOK</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CodigoSiteGOLD" type="xs:string"/>
+            <xs:element name="CongelamentoPedido">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoPedido"/>
+                        <xs:element ref="ns2:CodigoEntrega"/>
+                        <xs:element ref="ns2:CPFouCNPJ"/>
+                        <xs:element ref="ns2:CodigoSiteGOLD"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DadosPedido">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CPFouCNPJ"/>
+                        <xs:element ref="ns2:TipoPedido"/>
+                        <xs:element ref="ns2:InformAdicionaisNF" minOccurs="0"/>
+                        <xs:element ref="ns2:CodigoSiteGOLD"/>
+                        <xs:element ref="ns2:DadosPedidoItens"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DadosPedidoItem">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoProdutoRMS"/>
+                        <xs:element ref="ns2:QuantidadeProduto"/>
+                        <xs:element ref="ns2:PrecoUnitario"/>
+                        <xs:element ref="ns2:InformAdicionaisNF" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DadosPedidoItemRetorno">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoProdutoRMS"/>
+                        <xs:element ref="ns2:QuantidadeProduto"/>
+                        <xs:element ref="ns2:MotivoDevolucao"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DadosPedidoItens">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:DadosPedidoItem" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DadosPedidoItensRetorno">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:DadosPedidoItemRetorno" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="InformAdicionaisNF" type="xs:string"/>
+            <xs:element name="ListaProdutosReintegracao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:ProdutoReintegracao" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MensagemRetono" type="xs:string"/>
+            <xs:element name="MercadoriaEmTransito" type="xs:boolean"/>
+            <xs:element name="MotivoDevolucao" type="xs:string"/>
+            <xs:element name="MovimentacaoEstoqReversaParaNormal">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoLote"/>
+                        <xs:element ref="ns2:CodigoSiteGOLD"/>
+                        <xs:element ref="ns2:ListaProdutosReintegracao"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NotaFiscalLeilao">
+                <xs:annotation>
+                    <xs:documentation>Atende ao item I0050 - Solicita emiss�o de nota fiscal de venda leil�o</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoPedido" minOccurs="0"/>
+                        <xs:element ref="ns2:DadosPedido" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NotaFiscalRetornoCliente">
+                <xs:annotation>
+                    <xs:documentation>Referente ao item I0051 - Gera��o de NF de retorno do cliente no sistema GOLD</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoEntrega"/>
+                        <xs:element ref="ns2:CodigoDevolucao"/>
+                        <xs:element ref="ns2:MercadoriaEmTransito"/>
+                        <xs:element ref="ns2:DadosPedidoItensRetorno"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PrecoUnitario" type="xs:double"/>
+            <xs:element name="ProdutoReintegracao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoProdutoRMS"/>
+                        <xs:element ref="ns2:QuantidadeReintegrada"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="QuantidadeProduto" type="xs:int"/>
+            <xs:element name="QuantidadeReintegrada" type="xs:int"/>
+            <xs:element name="Retorno">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:CodigoRetorno">
+                            <xs:annotation>
+                                <xs:documentation>1-OK, 0-NOK</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element ref="ns2:MensagemRetono" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TipoPedido">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.carrefour.com.br/WS/Pedido" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="ArrayOfCodigoProdutosAfetados">
+                <xs:sequence>
+                    <xs:element name="DadosCodigoProdutosAfetados" type="ns0:CodigoProdutosAfetados" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfDadosPedidos">
+                <xs:sequence>
+                    <xs:element name="DadosPedidos" type="ns0:DadosPedidos" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfDadosPedidosItem">
+                <xs:sequence>
+                    <xs:element name="DadosPedidosItem" type="ns0:DadosPedidosItem" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfDadosPedidosResultado">
+                <xs:sequence>
+                    <xs:element name="DadosPedidosResultado" type="ns0:DadosPedidosResultado" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfDadosStatusPedido">
+                <xs:sequence>
+                    <xs:element name="DadosStatusPedido" type="ns0:DadosStatusPedido" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="BairroType">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="35"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="CodigoProdutosAfetados">
+                <xs:sequence>
+                    <xs:element name="CodigoProduto" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DadosEndereco">
+                <xs:sequence>
+                    <xs:element name="NomeCliente" type="xs:string"/>
+                    <xs:element name="Logradouro" type="xs:string"/>
+                    <xs:element name="NumeroLogradouro" type="xs:string"/>
+                    <xs:element name="ComplementoEndereco" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Bairro" type="ns0:BairroType"/>
+                    <xs:element name="Municipio" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Estado" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Cep" type="xs:string"/>
+                    <xs:element name="ReferenciaEndereco" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Pais" type="xs:string" minOccurs="0"/>
+                    <xs:element name="EndCodigoIBGE" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DadosPedidos">
+                <xs:sequence>
+                    <xs:element name="CodigoPedido" type="xs:string"/>
+                    <xs:element name="CodigoEntrega" type="xs:string"/>
+                    <xs:element name="EMail" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CPFouCNPJ" type="xs:string"/>
+                    <xs:element name="CodigoCliente" type="xs:string"/>
+                    <xs:element name="CondicaoPagamento" type="xs:string"/>
+                    <xs:element name="ValorPedido" type="xs:double"/>
+                    <xs:element name="ValorFrete" type="xs:double"/>
+                    <xs:element name="ValorEncargos" type="xs:double" minOccurs="0"/>
+                    <xs:element name="ValorDesconto" type="xs:double" minOccurs="0"/>
+                    <xs:element name="DataVenda" type="xs:string"/>
+                    <xs:element name="Transportadora" type="xs:string" minOccurs="0"/>
+                    <xs:element name="EmitirNotaSimbolica" type="xs:boolean"/>
+                    <xs:element name="FormaPagamento" type="xs:string"/>
+                    <xs:element name="DestNome" type="xs:string"/>
+                    <xs:element name="DestSexo" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DestEmail" type="xs:string"/>
+                    <xs:element name="DestTelefone" type="xs:string"/>
+                    <xs:element name="DestLogradouro" type="xs:string"/>
+                    <xs:element name="DestNumeroLogradouro" type="xs:string"/>
+                    <xs:element name="DestComplementoEndereco" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DestBairro" type="ns0:BairroType"/>
+                    <xs:element name="DestMunicipio" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DestEstado" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DestCep" type="xs:string"/>
+                    <xs:element name="DestPais" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DestTipoPessoa" type="ns0:TipoPessoaEnum"/>
+                    <xs:element name="DestInscricaoEstadual" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DestInscricaoMunicipal" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DestReferencia" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PedidoJaPago" type="xs:boolean"/>
+                    <xs:element name="Itens" type="ns0:ArrayOfDadosPedidosItem" minOccurs="0"/>
+                    <xs:element name="DataPrazoEntregaInicial" type="xs:string"/>
+                    <xs:element name="DataPrazoEntregaFinal" type="xs:string"/>
+                    <xs:element name="TipoEntrega" type="xs:string"/>
+                    <xs:element name="ValorFretePagar" type="xs:double" minOccurs="0"/>
+                    <xs:element name="InformAdicionaisNF" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoEntregaPedidoAlterado" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PrioridadeEntrega" type="xs:boolean"/>
+                    <xs:element name="EndCodigoIBGE" type="xs:string"/>
+                    <xs:element name="WareHouse" type="xs:string"/>
+                    <xs:element name="CodigoAWB" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoSiteGOLD" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoTipoServico" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoSiteVendaEED" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SistemaOrigem" type="xs:string" minOccurs="0"/>
+                    <xs:element name="EndFaturamento" type="ns0:DadosEndereco" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DadosPedidosItem">
+                <xs:sequence>
+                    <xs:element name="CodigoProduto" type="xs:string"/>
+                    <xs:element name="QuantidadeProduto" type="xs:double"/>
+                    <xs:element name="PrecoUnitario" type="xs:double"/>
+                    <xs:element name="EmbalagemPresente" type="xs:boolean"/>
+                    <xs:element name="MensagemPresente" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PrecoUnitarioBruto" type="xs:double"/>
+                    <xs:element name="ValorReferencia" type="xs:double"/>
+                    <xs:element name="ValorDesconto" type="xs:double" minOccurs="0"/>
+                    <xs:element name="ValorFrete" type="xs:double"/>
+                    <xs:element name="InformAdicionaisNF" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DadosPedidosResultado">
+                <xs:sequence>
+                    <xs:element name="CodigoPedido" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoEntrega" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Resultado" type="ns0:DadosResultadoOperacao"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DadosPedidosResultadoRows">
+                <xs:complexContent>
+                    <xs:extension base="ns0:TDadosRows">
+                        <xs:sequence>
+                            <xs:element name="Rows" type="ns0:ArrayOfDadosPedidosResultado" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="DadosResultadoOperacao">
+                <xs:sequence>
+                    <xs:element name="Codigo" type="xs:int"/>
+                    <xs:element name="Descricao" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DadosStatusPedido">
+                <xs:sequence>
+                    <xs:element name="ProtocoloStatusPedido" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoPedido" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoEntrega" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoStatus" type="xs:string" minOccurs="0"/>
+                    <xs:element name="StatusPedido" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DataHora" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SerieNota" type="xs:string" minOccurs="0"/>
+                    <xs:element name="NumeroNota" type="xs:int"/>
+                    <xs:element name="DataEmissaoNota" type="xs:string" minOccurs="0"/>
+                    <xs:element name="NumeroObjeto" type="xs:string" minOccurs="0"/>
+                    <xs:element name="QuantidadeVolumes" type="xs:int"/>
+                    <xs:element name="CodigoMotivoCancelamento" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MotivoCancelamento" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ChaveNfe" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CodigoTransportadora" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DadosStatusPedidoRows">
+                <xs:complexContent>
+                    <xs:extension base="ns0:TDadosRows">
+                        <xs:sequence>
+                            <xs:element name="Rows" type="ns0:ArrayOfDadosStatusPedido" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:simpleType name="TBooleanNullEnum">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="tbneNenhum"/>
+                    <xs:enumeration value="tbneSim"/>
+                    <xs:enumeration value="tbneNao"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="TDadosRows">
+                <xs:sequence>
+                    <xs:element name="VersaoWebService" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ResultadoOperacao" type="xs:string"/>
+                    <xs:element name="MensagemErro" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="TipoPessoaEnum">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="F"/>
+                    <xs:enumeration value="J"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="CancelarPedido">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:ListaPedidosCancelados"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CancelarPedidoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="CancelarPedidoResult" type="ns0:DadosPedidosResultadoRows" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CodigoEntrega" type="xs:string"/>
+            <xs:element name="CodigoPedido" type="xs:string"/>
+            <xs:element name="ConfirmarRecebimentoPedido">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ProtocoloPedido" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConfirmarRecebimentoPedidoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ConfirmarRecebimentoPedidoResult" type="xs:string"/>
+                        <xs:element name="MensagemErro" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConfirmarRecebimentoStatusPedido">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ProtocoloStatusPedido" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConfirmarRecebimentoStatusPedidoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ConfirmarRecebimentoStatusPedidoResult" type="xs:string" maxOccurs="unbounded"/>
+                        <xs:element name="MensagemErro" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DadosPedidoCancelado">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:CodigoPedido"/>
+                        <xs:element ref="ns0:CodigoEntrega"/>
+                        <xs:element ref="ns0:SistemaOrigem" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="InserirPedido">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ListaDePedidos" type="ns0:ArrayOfDadosPedidos" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="InserirPedidoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InserirPedidoResult" type="ns0:DadosPedidosResultadoRows" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ListaPedidosCancelados">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:DadosPedidoCancelado" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SistemaOrigem" type="xs:string"/>
+            <xs:element name="StatusPedidoDisponiveis">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ChaveIdentificacao" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="StatusPedidoDisponiveisResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="StatusPedidoDisponiveisResult" type="ns0:DadosStatusPedidoRows" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.carrefour.com.br/WS/PedidoSVA" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.carrefour.com.br/WS/PedidoSVA" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="CodigoCD" type="xs:string"/>
+            <xs:element name="CodigoErro" type="xs:string"/>
+            <xs:element name="CodigoLoja" type="xs:string"/>
+            <xs:element name="CodigoPedido" type="xs:string"/>
+            <xs:element name="CodigoProduto" type="xs:string"/>
+            <xs:element name="ConfirmarPedido">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:CodigoPedido" minOccurs="0"/>
+                        <xs:element ref="ns1:CodigoLoja" minOccurs="0"/>
+                        <xs:element ref="ns1:NomeLoja" minOccurs="0"/>
+                        <xs:element ref="ns1:CupomFiscal" minOccurs="0"/>
+                        <xs:element ref="ns1:DataEmissao" minOccurs="0"/>
+                        <xs:element ref="ns1:CodigoCD" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConfirmarPedidoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:CodigoPedido" minOccurs="0"/>
+                        <xs:element ref="ns1:StatusOperacao" minOccurs="0"/>
+                        <xs:element ref="ns1:CodigoErro" minOccurs="0"/>
+                        <xs:element ref="ns1:MensagemErro" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultarEstoque">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:CodigoCD" minOccurs="0"/>
+                        <xs:element ref="ns1:CodigoProduto" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultarEstoqueResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:CodigoCD" minOccurs="0"/>
+                        <xs:element ref="ns1:CodigoProduto" minOccurs="0"/>
+                        <xs:element ref="ns1:QuantidadeDisponivelVenda" minOccurs="0"/>
+                        <xs:element ref="ns1:DataUltimaEntrada" minOccurs="0"/>
+                        <xs:element ref="ns1:DataUltimaVenda" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CupomFiscal" type="xs:string"/>
+            <xs:element name="DataEmissao" type="xs:string"/>
+            <xs:element name="DataUltimaEntrada" type="xs:string"/>
+            <xs:element name="DataUltimaVenda" type="xs:string"/>
+            <xs:element name="MensagemErro" type="xs:string"/>
+            <xs:element name="NomeLoja" type="xs:string"/>
+            <xs:element name="QuantidadeDisponivelVenda" type="xs:string"/>
+            <xs:element name="StatusOperacao" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="WEBSERVICE_PEDIDO">
+        <wsdl:port name="ERPWSPlataformaSoapEndpoint1" binding="tns:ERPWSPlataformaSoapEndpoint1Binding">
+            <soap:address location="http://localhost:8283/WS/Pedido"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="ERPWSPlataformaSoap">
+        <wsdl:operation name="ConfirmarRecebimentoPedido">
+            <wsdl:documentation>Quando um pedido se torna dispon�vel para integra��o ele se torna um item de uma lista at� que seja retirado da mesma. Para retir�-lo da lista � necess�rio informar que a sua integra��o foi bem sucedida. Este m�todo deve ser usado para isso. Caso a confirma��o n�o ocorra a mesma ir� permanecer na lista indefinidamente.</wsdl:documentation>
+            <wsdl:input message="tns:ConfirmarRecebimentoPedidoSoapIn"/>
+            <wsdl:output message="tns:ConfirmarRecebimentoPedidoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelarPedido">
+            <wsdl:input message="tns:CancelarPedidoSoapIn"/>
+            <wsdl:output message="tns:CancelarPedidoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="ConfirmarPedido">
+            <wsdl:input message="tns:ConfirmarPedidoIn"/>
+            <wsdl:output message="tns:ConfirmarPedidoOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="ConsultarEstoque">
+            <wsdl:input message="tns:ConsultarEstoqueIn"/>
+            <wsdl:output message="tns:ConsultarEstoqueOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CongelarPedido">
+            <wsdl:input message="tns:CongelarPedidoIn"/>
+            <wsdl:output message="tns:CongelarPedidoOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="StatusPedidoDisponiveis">
+            <wsdl:documentation>Deve ser utilizado para obter as informa��es de status de pedidos que est�o dispon�veis para a integra��o. A informa��o se torna dispon�vel para integra��o quando ocorre alguma altera��o no status do pedido.</wsdl:documentation>
+            <wsdl:input message="tns:StatusPedidoDisponiveisSoapIn"/>
+            <wsdl:output message="tns:StatusPedidoDisponiveisSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="InserirPedido">
+            <wsdl:documentation>Permite a inclus�o dos pedidos diretamente no sistema. Podem ser enviados v�rios pedidos de uma �nica vez se assim for desejado.</wsdl:documentation>
+            <wsdl:input message="tns:InserirPedidoSoapIn"/>
+            <wsdl:output message="tns:InserirPedidoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="SolicitarNotaFiscalLeilao">
+            <wsdl:input message="tns:SolicitarNotaFiscalLeilaoIn"/>
+            <wsdl:output message="tns:SolicitarNotaFiscalLeilaoOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelarSolicNotaFiscalRetornoCliente">
+            <wsdl:input message="tns:CancelarSolicNotaFiscalRetornoClienteIn"/>
+            <wsdl:output message="tns:CancelarSolicNotaFiscalRetornoClienteOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="SolicitarNotaFiscalRetornoCliente">
+            <wsdl:input message="tns:SolicitarNotaFiscalRetornoClienteIn"/>
+            <wsdl:output message="tns:SolicitarNotaFiscalRetornoClienteOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="SolicitarMovimentacaoEstoqReversaParaNormal">
+            <wsdl:input message="tns:SolicitarMovimentacaoEstoqReversaParaNormalIn"/>
+            <wsdl:output message="tns:SolicitarMovimentacaoEstoqReversaParaNormalOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ERPWSPlataformaSoapEndpoint1Binding" type="tns:ERPWSPlataformaSoap">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ConfirmarRecebimentoPedido">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/ConfirmarRecebimentoPedido"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelarPedido">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/CancelarPedido"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConfirmarPedido">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WEBSERVICE_PEDIDO.serviceagent//ConfirmarPedido"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConsultarEstoque">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WEBSERVICE_PEDIDO.serviceagent//ConsultarEstoque"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CongelarPedido">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WEBSERVICE_PEDIDO.serviceagent//CongelarPedido"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="StatusPedidoDisponiveis">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/StatusPedidoDisponiveis"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InserirPedido">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/InserirPedido"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SolicitarNotaFiscalLeilao">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/SolicitarNotaFiscalLeilao"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelarSolicNotaFiscalRetornoCliente">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/CancelarSolicNotaFiscalRetornoCliente"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SolicitarNotaFiscalRetornoCliente">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/SolicitarNotaFiscalRetornoCliente"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SolicitarMovimentacaoEstoqReversaParaNormal">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/Services/WSDL-service1.serviceagent/ERPWSPlataformaSoapEndpoint1/SolicitarMovimentacaoEstoqReversaParaNormal"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="ConfirmarRecebimentoPedidoSoapIn">
+        <wsdl:part name="parameters" element="ns0:ConfirmarRecebimentoPedido"/>
+    </wsdl:message>
+    <wsdl:message name="ConfirmarRecebimentoPedidoSoapOut">
+        <wsdl:part name="parameters" element="ns0:ConfirmarRecebimentoPedidoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CancelarPedidoSoapIn">
+        <wsdl:part name="parameters" element="ns0:CancelarPedido"/>
+    </wsdl:message>
+    <wsdl:message name="CancelarPedidoSoapOut">
+        <wsdl:part name="parameters" element="ns0:CancelarPedidoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ConfirmarPedidoIn">
+        <wsdl:part name="parameters" element="ns1:ConfirmarPedido"/>
+    </wsdl:message>
+    <wsdl:message name="ConfirmarPedidoOut">
+        <wsdl:part name="parameters" element="ns1:ConfirmarPedidoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ConsultarEstoqueIn">
+        <wsdl:part name="parameters" element="ns1:ConsultarEstoque"/>
+    </wsdl:message>
+    <wsdl:message name="ConsultarEstoqueOut">
+        <wsdl:part name="parameters" element="ns1:ConsultarEstoqueResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CongelarPedidoIn">
+        <wsdl:part name="parameters" element="ns2:CongelamentoPedido"/>
+    </wsdl:message>
+    <wsdl:message name="CongelarPedidoOut">
+        <wsdl:part name="parameters" element="ns2:Retorno"/>
+    </wsdl:message>
+    <wsdl:message name="StatusPedidoDisponiveisSoapIn">
+        <wsdl:part name="parameters" element="ns0:StatusPedidoDisponiveis"/>
+    </wsdl:message>
+    <wsdl:message name="StatusPedidoDisponiveisSoapOut">
+        <wsdl:part name="parameters" element="ns0:StatusPedidoDisponiveisResponse"/>
+    </wsdl:message>
+    <wsdl:message name="InserirPedidoSoapIn">
+        <wsdl:part name="parameters" element="ns0:InserirPedido"/>
+    </wsdl:message>
+    <wsdl:message name="InserirPedidoSoapOut">
+        <wsdl:part name="parameters" element="ns0:InserirPedidoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SolicitarNotaFiscalLeilaoIn">
+        <wsdl:part name="parameters" element="ns2:NotaFiscalLeilao"/>
+    </wsdl:message>
+    <wsdl:message name="SolicitarNotaFiscalLeilaoOut">
+        <wsdl:part name="parameters" element="ns2:Retorno"/>
+    </wsdl:message>
+    <wsdl:message name="CancelarSolicNotaFiscalRetornoClienteIn">
+        <wsdl:part name="parameters" element="ns2:CancelamentoNFRetornoCliente"/>
+    </wsdl:message>
+    <wsdl:message name="CancelarSolicNotaFiscalRetornoClienteOut">
+        <wsdl:part name="parameters" element="ns2:Retorno"/>
+    </wsdl:message>
+    <wsdl:message name="SolicitarNotaFiscalRetornoClienteIn">
+        <wsdl:part name="parameters" element="ns2:NotaFiscalRetornoCliente"/>
+    </wsdl:message>
+    <wsdl:message name="SolicitarNotaFiscalRetornoClienteOut">
+        <wsdl:part name="parameters" element="ns2:Retorno"/>
+    </wsdl:message>
+    <wsdl:message name="SolicitarMovimentacaoEstoqReversaParaNormalIn">
+        <wsdl:part name="parameters" element="ns2:MovimentacaoEstoqReversaParaNormal"/>
+    </wsdl:message>
+    <wsdl:message name="SolicitarMovimentacaoEstoqReversaParaNormalOut">
+        <wsdl:part name="parameters" element="ns2:Retorno"/>
+    </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+base: --no-source --color --format pretty
+default: --profile preprod
+qa: --profile base PROFILE=qa
+preprod: --profile base PROFILE=preprod
+prd: --profile base PROFILE=prd
+json_report: --format progress --format json --out=reports/report_test.json
+report: -f html --out=features/fixtures/reports/report.html  
+bvt: --tags @bvt
+

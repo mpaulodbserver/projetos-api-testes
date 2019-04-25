@@ -1,0 +1,8 @@
+qa:
+  post_estoqueProdutoEVA: 'https://cadastro.eudora.com.br/api/v1/pessoa'
+ 
+preprod:
+  post_estoqueProdutoEVA: 'http://10.113.146.14:4110/estoqueProdutoLoja'
+
+prd:
+  post_estoqueProdutoEVA: 'http://10.113.146.14:4110/estoqueProdutoLoja'

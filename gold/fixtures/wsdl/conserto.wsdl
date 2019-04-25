@@ -1,0 +1,73 @@
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="Untitled" targetNamespace="http://xmlns.example.com/1456928158620" xmlns:ns0="http://www.carrefour.com.br/GoldService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.example.com/1456928158620" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   <wsdl:types>
+      <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.carrefour.com.br/GoldService" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.carrefour.com.br/GoldService">
+         <complexType name="RequestGoldService">
+            <sequence>
+               <element name="Pedido" type="tns:typePedido"/>
+            </sequence>
+         </complexType>
+         <complexType name="ResponseGoldService">
+            <sequence>
+               <element minOccurs="0" name="CodigoRetorno" type="string"/>
+               <element minOccurs="0" name="MensagemRetorno" type="string"/>
+            </sequence>
+         </complexType>
+         <complexType name="listItem">
+            <sequence>
+               <element maxOccurs="unbounded" minOccurs="0" name="PedidoItem" type="tns:typePedidoItem"/>
+            </sequence>
+         </complexType>
+         <complexType name="typePedido">
+            <sequence>
+               <element minOccurs="0" name="CodigoPedido" type="string"/>
+               <element minOccurs="0" name="CPFouCNPJ" type="string"/>
+               <element minOccurs="0" name="InformAdicionaisNF" type="string"/>
+               <element minOccurs="0" name="codSiteGOLD" type="string"/>
+               <element maxOccurs="unbounded" minOccurs="0" name="PedidoItem" type="tns:typePedidoItem"/>
+            </sequence>
+         </complexType>
+         <complexType name="typePedidoItem">
+            <sequence>
+               <element minOccurs="0" name="CodigoProdutoRMS" type="string"/>
+               <element minOccurs="0" name="QuantidadeProduto" type="string"/>
+               <element minOccurs="0" name="PrecoUnitario" type="string"/>
+               <element minOccurs="0" name="InformAdicionaisNF" type="string"/>
+            </sequence>
+         </complexType>
+         <element name="Pedido" type="tns:typePedido"/>
+         <element name="PedidoItem" type="tns:listItem"/>
+         <element name="RequestGoldService" type="tns:RequestGoldService"/>
+         <element name="ResponseGoldService" type="tns:ResponseGoldService"/>
+      </schema>
+   </wsdl:types>
+   <wsdl:service name="GoldService">
+      <wsdl:port binding="tns:GoldEndpoint1Binding" name="GoldEndpoint1">
+         <soap:address location="http://localhost:9090/Services/Application/WS/GoldService/Implementation/GoldService.serviceagent/GoldEndpoint1"/>
+      </wsdl:port>
+   </wsdl:service>
+   <wsdl:portType name="Gold">
+      <wsdl:operation name="ProcessOrders">
+         <wsdl:input message="tns:ProcessOrdersRequest"/>
+         <wsdl:output message="tns:ProcessOrdersResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="GoldEndpoint1Binding" type="tns:Gold">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="ProcessOrders">
+         <soap:operation soapAction="/Services/Application/WS/GoldService/Implementation/GoldService.serviceagent/GoldEndpoint1/ProcessOrders" style="document"/>
+         <wsdl:input>
+            <soap:body parts="request" use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body parts="response" use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:message name="ProcessOrdersRequest">
+      <wsdl:part element="ns0:RequestGoldService" name="request"/>
+   </wsdl:message>
+   <wsdl:message name="ProcessOrdersResponse">
+      <wsdl:part element="ns0:ResponseGoldService" name="response"/>
+   </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,44 @@
+preorder:
+  hybriscode: string
+  docnfe: string
+  preorderdate: string
+  preordertime: string
+  storecode: string
+  itemsquantity: string
+  preordervalue: string
+  paymentquantity: string
+  preorderstatus: string
+  item:
+  - itemcode: string
+    description: string
+    itemtype: string
+    quantity: string
+    price: string
+    totalvalue: string
+    discountvalue: string
+    promotiondescription: string
+    servicesupplier: string
+    servicename: string
+    associationgroup: string
+    servicetype: string
+    deliverymethod: string
+  payment:
+  - paymentcode: string
+    plancode: string
+    installmentquantity: string
+    installmentvalue: string
+    paymentvalue: string
+  customer:
+    documentnumber: string
+    documenttype: CPF
+    fullname: string
+    address: string
+    addressnumber: string
+    addresszipcode: string
+    addresscity: string
+    addressstate: string
+    statedocument: string
+    addresscomplement: string
+    email: user@example.com
+    areacodephone: string
+    phonenumber: string

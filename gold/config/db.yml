@@ -1,0 +1,19 @@
+qa:
+  gold-qa.name: 'ogld03qa1'
+  gold-qa.url: 'brexa02-scan.br.carrefour.com:1521/ogld03qa1'
+  gold-qa.user: 'refcent'
+  gold-qa.password: 'refcent'
+
+
+preprod:
+  gold.qa.name: 'ogld03qa1'
+  gold.qa.url: 'brexa02-scan.br.carrefour.com:1521/ogld03qa1'
+  gold.qa.user: 'refcent'
+  gold.qa.password: 'refcent'
+
+  
+prod:
+  gold-qa.name: 'ogld03qa1'
+  gold-qa.url: 'brexa02-scan.br.carrefour.com:1521/ogld03qa1'
+  gold-qa.user: 'refcent'
+  gold-qa.password: 'refcent'

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1489439938700" xmlns:ns0="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1489439938700">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="CriarPedidoHybris">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="xml" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CriarPedidoHybrisResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="CriarPedidoHybrisResult" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="SVAPedido-service0">
+        <wsdl:port name="ProcessaPreOrderSoapEndpoint0" binding="tns:ProcessaPreOrderSoapEndpoint0Binding">
+            <soap:address location="http://10.113.146.14:3110/ProcessaPreOrder.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="ProcessaPreOrderSoap">
+        <wsdl:operation name="CriarPedidoHybris">
+            <wsdl:input message="tns:CriarPedidoHybrisSoapIn"/>
+            <wsdl:output message="tns:CriarPedidoHybrisSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ProcessaPreOrderSoapEndpoint0Binding" type="tns:ProcessaPreOrderSoap">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CriarPedidoHybris">
+            <soap:operation style="document" soapAction="/ExposureLayer/SharedResources/WebServices/SVAPedido-service0.serviceagent/ProcessaPreOrderSoapEndpoint0/CriarPedidoHybris"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="CriarPedidoHybrisSoapIn">
+        <wsdl:part name="parameters" element="ns0:CriarPedidoHybris"/>
+    </wsdl:message>
+    <wsdl:message name="CriarPedidoHybrisSoapOut">
+        <wsdl:part name="parameters" element="ns0:CriarPedidoHybrisResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

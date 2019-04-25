@@ -1,0 +1,18 @@
+source 'https://rubygems.org'
+
+
+gem 'rspec'
+gem 'pry'
+gem 'nokogiri'
+gem 'savon'
+gem 'faker'
+gem 'httparty'
+gem 'ruby-oci8'
+gem 'sequel'
+gem 'cucumber', '3.1.0'
+gem 'colorize'
+gem 'parallel_tests'
+gem 'parallel'
+gem 'json_spec'
+gem 'httmultiparty', '~> 0.3.16'
+gem 'file_validators', '~> 2.1'

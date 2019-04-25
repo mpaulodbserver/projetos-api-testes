@@ -1,0 +1,4 @@
+default: --no-source --color --format pretty PROFILE=preprod
+report: -f html --out=reports/report.html
+preprod: PROFILE=preprod
+prod: PROFILE=prod

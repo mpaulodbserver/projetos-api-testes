@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1556031304363" stop="1556031363136">
+  <name>Cadastro base Aero para base eudora</name>
+  <title>Cadastro base Aero para base eudora</title>
+  <test-cases>
+    <test-case start="1556031304577" stop="1556031363123" status="failed">
+      <name>Criar cadastro completo base eudora</name>
+      <title>Criar cadastro completo base eudora</title>
+      <failure>
+        <message>Attempt to set readonly element with value: 12092000</message>
+        <stack-trace>./features/pages/CadastroEudoraPage.rb:42:in `dadosRepresentante'&#xD;
+./features/step_definitions/cadastroEudoraSteps.rb:8:in `"informar os dados da IR"'&#xD;
+features/specs/cadastroEudora.feature:9:in `Quando informar os dados da IR'</stack-trace>
+      </failure>
+      <steps>
+        <step start="1556031356937" stop="1556031356937" status="passed">
+          <name>Dado que acesse o site de cadastro eudora</name>
+          <title>Dado que acesse o site de cadastro eudora</title>
+          <attachments/>
+        </step>
+        <step start="1556031356937" stop="1556031362621" status="failed">
+          <name>Quando informar os dados da IR</name>
+          <title>Quando informar os dados da IR</title>
+          <attachments/>
+        </step>
+        <step start="1556031362621" stop="1556031362623" status="canceled">
+          <name>Ent&#xE3;o devera o cadastro realizado com sucesso e numero CPF cadastrado</name>
+          <title>Ent&#xE3;o devera o cadastro realizado com sucesso e numero CPF cadastrado</title>
+          <attachments>
+            <attachment source="57a8a5efb59fbff554e784d73e12e02e4afca0666f8b80b1403f7bbd66045539-attachment.png" title="Click here" size="43221" type="image/png"/>
+          </attachments>
+        </step>
+      </steps>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="45707520"/>
+        <label name="host" value="N041536"/>
+        <label name="feature" value="Cadastro base Aero para base eudora"/>
+        <label name="story" value="Criar cadastro completo base eudora"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="severity" value="normal"/>
+    <label name="thread" value="45707520"/>
+    <label name="host" value="N041536"/>
+  </labels>
+</ns2:test-suite>

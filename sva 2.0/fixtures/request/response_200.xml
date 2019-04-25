@@ -1,0 +1,7 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Body>
+      <ns0:CriarPedidoHybrisResponse xmlns:ns0="http://tempuri.org/">
+         <ns0:CriarPedidoHybrisResult>400</ns0:CriarPedidoHybrisResult>
+      </ns0:CriarPedidoHybrisResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+    <order.hybriscode>306908280</order.hybriscode>
+    <order.salesusercode/>
+    <order.storecode>1031</order.storecode>
+    <order.description>306908280</order.description>
+    <order.salesman>Pedro_Barbosa</order.salesman>
+    <order.fiscalnumber/>
+    <order.producttype>SVA</order.producttype>
+    <order.products>
+        <order.products.product>
+            <order.products.product.code>9794441</order.products.product.code>
+            <order.products.product.address>
+                <order.products.product.address.sequencenumber>1</order.products.product.address.sequencenumber>
+                <order.products.product.address.streetname>Pra�a da S�</order.products.product.address.streetname>
+                <order.products.product.address.streetnumber>123</order.products.product.address.streetnumber>
+                <order.products.product.address.district>S�</order.products.product.address.district>
+                <order.products.product.address.postalcode>01001001</order.products.product.address.postalcode>
+                <order.products.product.address.complement/>
+                <order.products.product.address.country>Brasil</order.products.product.address.country>
+                <order.products.product.address.town>S�o Paulo</order.products.product.address.town>
+                <order.products.product.address.region>SP</order.products.product.address.region>
+                <order.products.product.address.addresstype>R</order.products.product.address.addresstype>
+                <order.products.product.address.phoneregionnumber>11</order.products.product.address.phoneregionnumber>
+                <order.products.product.address.phonenumber>973648543</order.products.product.address.phonenumber>
+                <order.products.product.address.cellphoneregionnumber>11</order.products.product.address.cellphoneregionnumber>
+                <order.products.product.address.cellphonenumber>973648543</order.products.product.address.cellphonenumber>
+            </order.products.product.address>
+            <order.products.product.parent.code/>
+            <order.products.product.deliverymethod>1</order.products.product.deliverymethod>
+            <order.products.product.discountvalue>7.0</order.products.product.discountvalue>
+            <order.products.product.deliverydate/>
+            <order.products.product.quantity>1</order.products.product.quantity>
+            <order.products.product.installationdate/>
+            <order.products.product.value>140,00</order.products.product.value>
+            <order.products.product.deliveryperiod>T</order.products.product.deliveryperiod>
+            <order.products.product.promotionlistcode/>
+            <order.products.product.bundlecode/>
+            <order.products.product.promotionfired>N</order.products.product.promotionfired>
+            <order.products.product.managementcode/>
+        </order.products.product>
+    </order.products>
+    <order.payments>
+        <order.payments.payment>
+            <order.payments.payment.paymentplan.code>3</order.payments.payment.paymentplan.code>
+            <order.payments.payment.paymentplan.value>140.0</order.payments.payment.paymentplan.value>
+            <order.payments.payment.paymentplan.discountvalue>7.0</order.payments.payment.paymentplan.discountvalue>
+            <order.payments.payment.managercode/>
+            <order.payments.payment.initialvalue>0</order.payments.payment.initialvalue>
+            <order.payments.payment.installmentnumber>1</order.payments.payment.installmentnumber>
+            <order.payments.payment.installmentvalue>140.0</order.payments.payment.installmentvalue>
+            <order.payments.payment.code>3</order.payments.payment.code>
+        </order.payments.payment>
+    </order.payments>
+    <order.customer>
+        <order.customer.customername>ASM Loja</order.customer.customername>
+        <order.customer.nationality>BRASILEIRO</order.customer.nationality>
+        <order.customer.personcode>31484744730</order.customer.personcode>
+        <order.customer.passportcode/>
+        <order.customer.birthday>03/06/1983</order.customer.birthday>
+        <order.customer.email>asmloja@carrefour.com</order.customer.email>
+        <order.customer.maritalstatus>1</order.customer.maritalstatus>
+        <order.customer.gender>M</order.customer.gender>
+        <order.customer.addresses>
+            <order.customer.addresses.address>
+                <order.customer.addresses.address.sequencenumber>1</order.customer.addresses.address.sequencenumber>
+                <order.customer.addresses.address.streetname>Pra�a da S�</order.customer.addresses.address.streetname>
+                <order.customer.addresses.address.streetnumber>123</order.customer.addresses.address.streetnumber>
+                <order.customer.addresses.address.district>S�</order.customer.addresses.address.district>
+                <order.customer.addresses.address.complement/>
+                <order.customer.addresses.address.postalcode>01001001</order.customer.addresses.address.postalcode>
+                <order.customer.addresses.address.country>Brasil</order.customer.addresses.address.country>
+                <order.customer.addresses.address.town>S�o Paulo</order.customer.addresses.address.town>
+                <order.customer.addresses.address.region>SP</order.customer.addresses.address.region>
+                <order.customer.addresses.address.addresstype>R</order.customer.addresses.address.addresstype>
+                <order.customer.addresses.address.phoneregionnumber>11</order.customer.addresses.address.phoneregionnumber>
+                <order.customer.addresses.address.phonenumber>973648543</order.customer.addresses.address.phonenumber>
+                <order.customer.addresses.address.cellphoneregionnumber>11</order.customer.addresses.address.cellphoneregionnumber>
+                <order.customer.addresses.address.cellphonenumber>973648543</order.customer.addresses.address.cellphonenumber>
+            </order.customer.addresses.address>
+        </order.customer.addresses>
+    </order.customer>
+</order>

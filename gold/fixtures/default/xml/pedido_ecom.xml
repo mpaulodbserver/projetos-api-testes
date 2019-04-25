@@ -1,0 +1,81 @@
+ <soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:ped='http://www.carrefour.com.br/WS/Pedido'>
+            <soapenv:Header/>
+                <soapenv:Body>
+            <InserirPedido
+            xmlns='http://www.carrefour.com.br/WS/Pedido'
+            xmlns:ns2='http://www.carrefour.com.br/WS/PedidoISY'>
+            <ListaDePedidos>
+                <DadosPedidos>
+                    <CodigoPedido>#{$pedido}</CodigoPedido>
+                    <CodigoEntrega>#{$pedido}</CodigoEntrega>
+                    <EMail>testeinventti@teste.com.br</EMail>
+                    <CPFouCNPJ>21427979898</CPFouCNPJ>
+                    <CodigoCliente>testeinventti@teste.com.br</CodigoCliente>
+                    <CondicaoPagamento>Credit Card</CondicaoPagamento>
+                    <ValorPedido>489.80</ValorPedido>
+                    <ValorFrete>22.36</ValorFrete>
+                    <ValorEncargos>0.00</ValorEncargos>
+                    <ValorDesconto>0</ValorDesconto>
+                    <DataVenda>10/04/2018 00:00:00</DataVenda>
+                    <Transportadora>10520136000186</Transportadora>
+                    <EmitirNotaSimbolica>false</EmitirNotaSimbolica>
+                    <FormaPagamento>VISTA</FormaPagamento>
+                    <DestNome>Marcos Paulo</DestNome>
+                    <DestSexo>M</DestSexo>
+                    <DestEmail>testeinventti@teste.com.br</DestEmail>
+                    <DestTelefone>11983701580</DestTelefone>
+                    <DestLogradouro>Avenida Guilherme </DestLogradouro>
+                    <DestNumeroLogradouro>1515</DestNumeroLogradouro>
+                    <DestComplementoEndereco>apt 92 C</DestComplementoEndereco>
+                    <DestBairro>Das Candongas</DestBairro>
+                    <DestMunicipio>São Paulo</DestMunicipio>
+                    <DestEstado>SP</DestEstado>
+                    <DestCep>02053003</DestCep>
+                    <DestPais>Brasil</DestPais>
+                    <DestTipoPessoa>F</DestTipoPessoa>
+                    <DestInscricaoEstadual/>
+                    <DestInscricaoMunicipal/>
+                    <DestReferencia>condominio collection</DestReferencia>
+                    <PedidoJaPago>true</PedidoJaPago>
+                    <Itens>
+                        <DadosPedidosItem>
+                            <CodigoProduto>9658459</CodigoProduto>
+                            <QuantidadeProduto>1.00</QuantidadeProduto>
+                            <PrecoUnitario>100</PrecoUnitario>
+                            <EmbalagemPresente>false</EmbalagemPresente>
+                            <MensagemPresente/>
+                            <PrecoUnitarioBruto>100</PrecoUnitarioBruto>
+                            <ValorReferencia>100</ValorReferencia>
+                            <ValorDesconto>0</ValorDesconto>
+                            <ValorFrete>13.19</ValorFrete>
+                            <InformAdicionaisNF>Pedido :1000002230001Telefone: 11983701580Ponto de referencia: condominio collection</InformAdicionaisNF>
+                        </DadosPedidosItem>
+                        </Itens>
+                        <DataPrazoEntregaInicial>10/04/2018 00:00:00</DataPrazoEntregaInicial>
+                        <DataPrazoEntregaFinal>10/04/2018 00:00:00</DataPrazoEntregaFinal>
+                        <TipoEntrega>0</TipoEntrega>
+                        <ValorFretePagar>22.36</ValorFretePagar>
+                        <InformAdicionaisNF>Pedido :1000002230001Telefone: 11983701580Ponto de referencia: condominio collection</InformAdicionaisNF>
+                        <CodigoEntregaPedidoAlterado/>
+                        <PrioridadeEntrega>false</PrioridadeEntrega>
+                        <EndCodigoIBGE>3548708</EndCodigoIBGE>
+                        <WareHouse>992</WareHouse>
+                        <CodigoTipoServico>1</CodigoTipoServico>
+                        <EndFaturamento>
+                            <NomeCliente>Marcos Paulo</NomeCliente>
+                            <Logradouro>Avenida Guilherme</Logradouro>
+                            <NumeroLogradouro>1515</NumeroLogradouro>
+                            <ComplementoEndereco>apt 92 C</ComplementoEndereco>
+                            <Bairro>Das Candongas</Bairro>
+                            <Municipio>São Paulo</Municipio>
+                            <Estado>SP</Estado>
+                            <Cep>02053003</Cep>
+                            <ReferenciaEndereco>condominio collection</ReferenciaEndereco>
+                            <Pais>Brasil</Pais>
+                            <EndCodigoIBGE>3548708</EndCodigoIBGE>
+                        </EndFaturamento>
+                    </DadosPedidos>
+                </ListaDePedidos>
+            </InserirPedido>
+        </soapenv:Body>
+        </soapenv:Envelope>

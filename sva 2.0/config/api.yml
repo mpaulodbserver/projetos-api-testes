@@ -1,0 +1,11 @@
+preprod:
+  post_preorders: 'http://docs206.ecom.carrefour:3000/preorders'
+  get_preorders: 'http://docs206.ecom.carrefour:3000/preorders'
+  put_preorders_hybris: 'http://docs206.ecom.carrefour:3000/preorders/1'
+  preOrder_login: 'http://docs206.ecom.carrefour:3000'
+  preOrder_Token: 'http://docs206.ecom.carrefour:3000/token'
+
+prod:
+  post_preorders: 'http://docs206.ecom.carrefour:3000/preorders'
+  get_preorders: 'http://docs206.ecom.carrefour:3000/preorders'
+  put_preorders_hybris: 'http://docs206.ecom.carrefour:3000/preorders/1'

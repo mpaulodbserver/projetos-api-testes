@@ -1,0 +1,4 @@
+preprod: 
+  wsdl_gerar_preOrder: "http://10.113.146.14:3110/ProcessaPreOrder.asmx?wsdl"
+prod: 
+  wsdl_gerar_preOrder: "http://10.113.146.14:3110/ProcessaPreOrder.asmx?wsdl"

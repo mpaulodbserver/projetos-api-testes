@@ -1,0 +1,4 @@
+qa:
+
+preprod:
+  post_orders_print_nf: 'http://10.113.146.14:4010/impressaoNotaFiscal/v1/solicitar'

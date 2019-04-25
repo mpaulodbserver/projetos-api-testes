@@ -1,0 +1,26 @@
+default: -p pretty -p hmg -p no_headless
+
+pretty: --format pretty
+html: --format html --out=results/report.html
+json: --format json --out=results/report.json
+
+users: --profile base USERS=users
+passwords: --profile base PASSWORDS=passwords
+
+dev: ENVIRONMENT_TYPE=dev
+hmg: ENVIRONMENT_TYPE=hmg
+prod: ENVIRONMENT_TYPE=prod
+
+headless: BROWSER=headless
+no_headless:  BROWSER=no_headless
+chrome: BROWSER=chrome 
+firefox: BROWSER=firefox 
+ie: BROWSER=internet_explorer
+
+safari: BROWSER=safari
+
+report_firefox: BROWSER=firefox -f html --out=results/report_firefox.html
+report_chrome: BROWSER=chrome -f html --out=results/report_chrome.html
+report_ie: BROWSER=internet_explorer -f html --out=results/report_ie.html
+
+allure: --format AllureCucumber::Formatter --out=results/reports_allure
